@@ -17,11 +17,11 @@ export default function findWords(board, words) {
             }
 
             const reverseInd = rowString.split('').reverse().join('').indexOf(word)
-            if(forwardInd != -1) {
+            if(reverseInd != -1) {
                 res[word] = {
                     type: "row",
                     direction: "reverse",
-                    beginsAt: [r, reverseInd + word.length]
+                    beginsAt: [r, board.length - 1 -forwardInd]
                 }
             }
         }
@@ -33,7 +33,7 @@ export default function findWords(board, words) {
             
             if(forwardCol != -1) {
                 res[word] = {
-                    type: "row",
+                    type: "column",
                     direction: "normal",
                     beginsAt: [forwardCol, c]
                 }
@@ -43,9 +43,9 @@ export default function findWords(board, words) {
 
              if(reverseCol != -1) {
                 res[word] = {
-                    type: "row",
+                    type: "column",
                     direction: "reverse",
-                    beginsAt: [reverseCol + word.length, c]
+                    beginsAt: [colString.length- 1 - reverseCol, c]
                 }
             }
         }
