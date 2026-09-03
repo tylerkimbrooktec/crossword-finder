@@ -1,4 +1,4 @@
-export default function findWords(board, words) {
+function findWords(board, words) {
     const res = {}
 
     for (const word of words) {
@@ -55,22 +55,3 @@ export default function findWords(board, words) {
     return res
 
 }
-
-
-/*
-{
-  CAT: { type: "row", direction: "normal", beginsAt: [1, 1] },
-  RAT: { type: "column", direction: "reverse", beginsAt: [2, 2] },
-  BIRD: { type: "row", direction: "normal", beginsAt: [3, 0] }
-}
-*/
-
-    const board = [
-  ['R', 'D', 'T', 'G'],
-  ['W', 'C', 'A', 'T'],
-  ['E', 'E', 'R', '*'],
-  ['B', 'I', 'R', 'D']];
-
-
-
-console.log((findWords(board, ["CAT", "BIRD", "TREE", "RAT"])))
