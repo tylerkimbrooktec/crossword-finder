@@ -12,7 +12,7 @@ test("assert test case from redmine", () => {
 
   const res = findWords(board, ["CAT", "BIRD", "TREE", "RAT"]);
 
-  assert(res, {
+  assert.deepStrictEqual(res, {
   CAT: { type: "row", direction: "normal", beginsAt: [1, 1] },
   RAT: { type: "column", direction: "reverse", beginsAt: [2, 2] },
   BIRD: { type: "row", direction: "normal", beginsAt: [3, 0] }
@@ -56,6 +56,20 @@ test("finds words in reverse columns", () => {
   assert.deepStrictEqual(res, {
     STONE: { type: "column", direction: "reverse", beginsAt: [5, 1] },
     PLANT: { type: "column", direction: "reverse", beginsAt: [5, 6] }
+  })
+})
+
+test("finds words in reverse rows", () => {
+  const board = [
+    ['Q', 'T', 'A', 'C', 'Z'],
+    ['L', 'M', 'N', 'O', 'P'],
+    ['R', 'S', 'U', 'V', 'W']
+  ]
+
+  const res = findWords(board, ["CAT"])
+
+  assert.deepStrictEqual(res, {
+    CAT: { type: "row", direction: "reverse", beginsAt: [0, 3] }
   })
 })
 

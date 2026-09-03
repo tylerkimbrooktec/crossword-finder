@@ -21,7 +21,7 @@ export default function findWords(board, words) {
                 res[word] = {
                     type: "row",
                     direction: "reverse",
-                    beginsAt: [r, board.length - 1 -forwardInd]
+                    beginsAt: [r, rowString.length -reverseInd - 1]
                 }
             }
         }
@@ -45,7 +45,7 @@ export default function findWords(board, words) {
                 res[word] = {
                     type: "column",
                     direction: "reverse",
-                    beginsAt: [colString.length- 1 - reverseCol, c]
+                    beginsAt: [colString.length - reverseCol - 1, c]
                 }
             }
         }
